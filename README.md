@@ -1,6 +1,10 @@
 # Activity Tracker Demo Component
 
-![Outlook Screenshot](/readme-assets/mainss.png)
+![Main Screenshot](/readme-assets/mainss.png)
+
+## About
+
+This Simple component shows you the total time (in hours) spent on tasks (closed), by type (or whatever you would like to group it by). It is configurable to use the standard Task Object, or custom objects and does all the time calculation.
 
 ## Installation
 
@@ -8,7 +12,7 @@
 
 ## Configuration Options
 
-![Outlook Screenshot](/readme-assets/builderss.png)
+![Configuration Screenshot](/readme-assets/builderss.png)
 
 ## Maintainer
 
