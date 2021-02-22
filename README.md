@@ -2,17 +2,16 @@
 
 ![Outlook Screenshot](/readme-assets/mainss.png)
 
-## How Do You Plan to Deploy Your Changes?
+## Installation
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+[Install the Package](https://login.salesforce.com/packaging/installPackage.apexp?p0=04t4W0000038TFVQA2)
 
-## Configure Your Salesforce DX Project
+## Configuration Options
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+![Outlook Screenshot](/readme-assets/builderss.png)
 
-## Read All About It
+## Maintainer
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+[David Larrimore / davidlarrimore](https://github.com/davidlarrimore)
+
+**Current Version**: 0.1.0
