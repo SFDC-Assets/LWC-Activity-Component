@@ -1,0 +1,16 @@
+{
+    "objects": [
+        {
+            "query":"SELECT CaseNumber, Origin, OwnerId, Reason, SourceId, ContactEmail, ContactFax, ContactMobile, CreatedById, Priority, Status, Subject, Type FROM Case",
+            "operation": "Upsert",
+            "externalId": "CaseNumber"      
+        },
+        {
+            "query":"SELECT Id, ActivityDate, Subject, CreatedDate, CompletedDateTime, Status, WhatId, Description from TASK WHERE Status = 'Completed'",
+            "operation": "Upsert",
+            "externalId": "Id"      
+        }
+    ],
+    "promptOnMissingParentObjects": true,
+    "promptOnIssuesInCSVFiles": false
+}

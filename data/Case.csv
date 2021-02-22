@@ -1,0 +1,2 @@
+Id,CaseNumber,Origin,OwnerId,Reason,SourceId,ContactEmail,ContactFax,ContactMobile,CreatedById,Priority,Status,Subject,Type,Owner.Name,Source.Id,CreatedBy.Name
+5001h000005ir3dAAA,00001014,Email,0051h000005qNPrAAM,,,,,,0051h000005qNPrAAM,Medium,New,Test,,User User,,User User

@@ -1,0 +1,29 @@
+<template>
+    <template if:false={apiCallCompletedFlag}>
+        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+    </template>
+    <template if:true={apiCallCompletedFlag}>
+        <template if:true={apiResultsFlag}>
+            <lightning-card icon-name="standard:task">
+                <h1 slot="title">{Title}</h1>
+                    <h1 class="slds-text-heading_large slds-text-align_center" style="font-size: 400%;">
+                        {totalHours}<span class="slds-text-body_small">Hrs</span>
+                    </h1>
+                <div class="slds-card__body slds-card__body_inner">
+                    <lightning-datatable
+                        key-field="id"
+                        data={tableData}
+                        columns={columns}
+                        hide-checkbox-column=true
+                        resize-column-disabled=true>
+                    </lightning-datatable>
+                </div>
+            </lightning-card> 
+        </template> 
+        <template if:false={apiResultsFlag}>
+            <div class="slds-illustration slds-illustration_small" aria-hidden="true">
+                <img src="/img/chatter/Desert.svg" class="slds-illustration__svg" alt="" />
+            </div>
+        </template>
+    </template>
+</template>
