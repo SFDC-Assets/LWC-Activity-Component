@@ -13,42 +13,46 @@ public inherited sharing class ActivityTimeComponentHelper {
         System.debug('Processing the following:');
         System.debug('recordId:' + recordId + ' objectApiName:' + objectApiName + ' groupByField:' + groupByField + ' createdDateTimeField:' + createdDateTimeField + ' completedDateTimeField:' + completedDateTimeField + ' whereClause:' + whereClause);
         
+        Boolean badquery = false;
+
         String queryWhereClause = 'WHERE ';
         String queryObjectApiName = 'Task';
-        String querySelect = 'SELECT ActivityDate, Type, Subject, CreatedDate, CompletedDateTime, Status, Description';
+        String querySelect = 'SELECT Id ';
 
         if(null != objectApiName && '' != objectApiName){
             queryObjectApiName = objectApiName;
         }
 
-        if(null != createdDateTimeField && '' != createdDateTimeField && createdDateTimeField != 'CreatedDate'){
-            querySelect = querySelect + ', ' + createdDateTimeField;
-        }
+        //createdDateTimeField
+        querySelect += ', ' + ((null != createdDateTimeField && '' != createdDateTimeField) ? createdDateTimeField : 'CreatedDate');
 
-        if(null != groupByField && '' != groupByField && groupByField != 'Subject'){
-            querySelect = querySelect + ', ' + groupByField;
-        }
+        //completedDateTimeField
+        querySelect += ', ' + ((null != completedDateTimeField && '' != completedDateTimeField) ? completedDateTimeField : 'CompletedDateTime');
 
-        if(null != completedDateTimeField && '' != completedDateTimeField && completedDateTimeField != 'CompletedDateTime'){
-            querySelect = querySelect + ', ' + completedDateTimeField;
-        }
+        //groupByField
+        querySelect += ', ' + ((null != groupByField && '' != groupByField) ? groupByField : 'Subject');
 
-        if(null != whereClause && '' != whereClause){
-            queryWhereClause = queryWhereClause + ' AND ' + whereClause;
-        }else if(queryObjectApiName == 'Task'){
-            queryWhereClause = queryWhereClause + ' Status = \'Completed\' ';
-        }
+        //whereClause
+        queryWhereClause += ((null != whereClause && '' != whereClause) ? whereClause : ' Status = \'Completed\' ');
 
+        //recordId
         if(null != recordId && '' != recordId){
-            queryWhereClause = queryWhereClause + ' AND WhatId = \'' + recordId + '\'';
+            queryWhereClause += ' AND WhatId = \'' + recordId + '\'';
         }        
 
         string processQuery = querySelect + ' FROM ' + queryObjectApiName + ' ' + queryWhereClause;
 
         System.debug('Running the following Query:');
         System.debug(processQuery);
+        
+        try {
+            return DataBase.query(processQuery);
+        } catch(QueryException e) {
+            System.debug('The following exception has occurred: ' + e.getMessage());
+        }
 
-        return DataBase.query(processQuery);
+        System.debug('Returning Null');
+        return null;
     }
 
 }
